@@ -3,3 +3,4 @@ module ApplicationHelper
     Time.zone.now
   end
 end
+
