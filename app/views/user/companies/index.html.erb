@@ -1,0 +1,11 @@
+<% @companies.each do |company| %>
+    <p>
+      <a href="<%= user_company_path company %>">
+        <%= company.name %>
+      </a>
+    </p>
+<% end %>
+
+<p>
+  <a class="btn btn-success" href="<%= new_user_company_path %>">New</a>
+</p>

@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   namespace :public do
-    resources :companies
+
   end
 
+  namespace :user do
+    resources :companies
+  end
 
 
   root 'public/base#index'

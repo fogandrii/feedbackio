@@ -1,0 +1,8 @@
+<h1><%= @company.name %></h1>
+<p>
+  <a href="<%= user_companies_path %>">Back</a>
+  <a href="<%= edit_user_company_path %>">Edit</a>
+  <%= form_tag user_company_path(@company), method: :delete do %>
+    <%= submit_tag 'Delete '%>
+  <% end %>
+</p>

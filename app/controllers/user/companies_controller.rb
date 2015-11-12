@@ -1,5 +1,5 @@
-class Public::CompaniesController < Public::BaseController
-  before_action :set_company, only: [:edit, :update, :show]
+class User::CompaniesController < User::BaseController
+  before_action :set_company, only: [:edit, :update, :show, :destroy]
 
   def index
     @companies = Company.all
@@ -26,7 +26,9 @@ class Public::CompaniesController < Public::BaseController
   end
 
   def destroy
-
+    @company.delete
+    flash[:notice] = "Company #{@company.name} removed"
+    redirect_to user_companies_path
   end
 
   private
@@ -39,14 +41,15 @@ class Public::CompaniesController < Public::BaseController
     begin
       @company = Company.find params[:id]
     rescue
-      redirect_to public_companies_path
+      flash[:alert] = 'Company not found'
+      redirect_to user_companies_path
     end
   end
 
   def handle_form(on_invalid_object)
     if @company.valid?
       @company.id ? @company.update(company_params) : @company.save
-      redirect_to public_company_path @company
+      redirect_to user_company_path @company
     else
       on_invalid_object.call
     end
