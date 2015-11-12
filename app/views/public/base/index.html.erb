@@ -1,5 +1,16 @@
+<% content_for :jumbotron do %>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="<%= public_companies_path %>" role="button">All companies &raquo;</a></p>
+      </div>
+    </div>
+<% end %>
+
 <h1>Public::Test#welcome</h1>
 <h2><%= @hello %></h2>
 <h3><%= current_datetime %></h3>
 <p>Find me in app/views/public/test/welcome.html.erb</p>
+
 
